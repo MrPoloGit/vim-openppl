@@ -41,7 +41,7 @@ syn match opplComparisonOp "!=\|<=\|>=\|\~\~\|=\|<\|>"
 syn match opplArithmeticOp "[+\-*/]"
 
 " "##f$preflop##", "##list007##", one syntax for both functions and
-" handlists .
+" handlists.
 syn match opplSection "##[A-Za-z_$][A-Za-z0-9_$]*##"
 
 " "hand$AA", "hand$AQSuited", "hand$AKs" (NOT suited, a confirmed trap

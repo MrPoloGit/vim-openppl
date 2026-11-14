@@ -1,2 +1,2 @@
-" Filetype detection for .ohf .
+" Filetype detection for .ohf.
 autocmd BufRead,BufNewFile *.ohf set filetype=openppl

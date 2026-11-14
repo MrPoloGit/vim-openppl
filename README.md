@@ -10,6 +10,11 @@ shipped here (same split as `vim-phh`/`vim-ohh`).
 Add this directory to `'runtimepath'` before `filetype on`/`syntax on`
 run. Needs `:filetype on` and `:syntax on` enabled.
 
+**Not listed anywhere.** This repo is pushed to
+`github.com/MrPoloGit/vim-openppl`, usable today by any plugin manager
+that takes a plain git URL, but it isn't listed on vim.org, vimawesome,
+or any other curated index, nothing has been submitted anywhere.
+
 ## What's implemented (L0)
 
 - **Filetype detection** (`ftdetect/openppl.vim`): `.ohf` → `openppl`.

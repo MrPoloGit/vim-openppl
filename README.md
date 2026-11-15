@@ -35,14 +35,14 @@ or any other curated index, nothing has been submitted anywhere.
 ## L1: diagnostics and hover via openppl-ls
 
 No bespoke plugin here, same reasoning as `vim-phh`/`vim-ohh`. Point any
-general LSP client at `../openppl-ls/build/openppl-ls ../openppl/registry`
+general LSP client at `../openppl-ls/build/openppl-ls ../openppl-data/registry`
 for filetype `openppl`. For [vim-lsp](https://github.com/prabirshrestha/vim-lsp):
 
 ```vim
 if executable('openppl-ls')
   au User lsp_setup call lsp#register_server({
       \ 'name': 'openppl-ls',
-      \ 'cmd': {server_info->['/path/to/openppl-ls/build/openppl-ls', '/path/to/openppl/registry']},
+      \ 'cmd': {server_info->['/path/to/openppl-ls/build/openppl-ls', '/path/to/openppl-data/registry']},
       \ 'allowlist': ['openppl'],
       \ 'root_uri': {server_info->lsp#utils#path_to_uri(fnamemodify(lsp#utils#get_buffer_path(), ':p:h'))},
       \ })
@@ -69,7 +69,7 @@ For [coc.nvim](https://github.com/neoclient/coc.nvim):
   "languageserver": {
     "openppl": {
       "command": "/path/to/openppl-ls/build/openppl-ls",
-      "args": ["/path/to/openppl/registry"],
+      "args": ["/path/to/openppl-data/registry"],
       "filetypes": ["openppl"]
     }
   }

@@ -28,7 +28,7 @@ function! s:GroupAt(line, col)
 endfunction
 
 " 1. ftdetect + syntax load.
-execute 'edit ' . g:opplroot . 'openppl/corpus/valid/structure-example.ohf'
+execute 'edit ' . g:opplroot . 'openppl-data/corpus/valid/structure-example.ohf'
 call s:Check('ftdetect sets filetype=openppl', &filetype ==# 'openppl')
 call s:Check('syntax item defined (b:current_syntax)', get(b:, 'current_syntax', '') ==# 'openppl')
 
@@ -61,7 +61,7 @@ call s:Check('line 5 col 5 (WHEN, same as line 4) is opplKeyword', s:GroupAt(5, 
 " two ##f$CardsLeft##/##f$Outs## sections at the top after this test was
 " first written, recomputed via Python against the real file, not
 " assumed, after that edit shifted every later line down by 9).
-execute 'edit ' . g:opplroot . 'openppl/corpus/valid/operators.ohf'
+execute 'edit ' . g:opplroot . 'openppl-data/corpus/valid/operators.ohf'
 call s:Check('line 16 col 24 (<=) is opplComparisonOp', s:GroupAt(16, 24) ==# 'opplComparisonOp')
 call s:Check('line 16 col 27 (50%) is opplPercentage', s:GroupAt(16, 27) ==# 'opplPercentage')
 call s:Check('line 18 col 20 (~~) is opplComparisonOp', s:GroupAt(18, 20) ==# 'opplComparisonOp')
@@ -77,8 +77,8 @@ call s:Check('line 26 col 10 (hand$AKs, the trap form) is still just opplHandBoa
       \ s:GroupAt(26, 10) ==# 'opplHandBoard')
 
 " 9. Full-corpus sweep.
-for path in glob(g:opplroot . 'openppl/corpus/valid/*.ohf', 0, 1)
-      \ + glob(g:opplroot . 'openppl/corpus/invalid/*.ohf', 0, 1)
+for path in glob(g:opplroot . 'openppl-data/corpus/valid/*.ohf', 0, 1)
+      \ + glob(g:opplroot . 'openppl-data/corpus/invalid/*.ohf', 0, 1)
   execute 'edit ' . fnameescape(path)
   call s:Check(fnamemodify(path, ':t') . ': loads with filetype=openppl and syntax applied',
         \ &filetype ==# 'openppl' && get(b:, 'current_syntax', '') ==# 'openppl')
